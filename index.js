@@ -61,7 +61,6 @@ for (var i = 0; i < numberOfButtons; i++) {
 
 // Linstener for keypress:
 
-document.addEventListener("keypress", function (event) {
-    makeSound(event.key);
+document.addEventListener("keypress", function (e) {
+    makeSound(e.key);
 });
-
