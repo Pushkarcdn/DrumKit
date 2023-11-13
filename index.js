@@ -1,9 +1,9 @@
+// Function tomake sound:
 
-function func1() {
+function makeSound(key) {
 
-    var j = this.innerHTML;
+    switch (key) {
 
-    switch (j) {
         case 'w':
             var audio = new Audio("/sounds/tom-1.mp3");
             audio.play();
@@ -45,8 +45,23 @@ function func1() {
 }
 
 
-for (var i = 0; i < document.querySelectorAll("button.drum").length; i++) {
+// Listener for click:
 
-    document.querySelectorAll("button.drum")[i].addEventListener("click", func1);
+numberOfButtons = document.querySelectorAll("button.drum").length;
 
+for (var i = 0; i < numberOfButtons; i++) {
+
+    document.querySelectorAll("button.drum")[i].addEventListener("click", function () {
+
+        makeSound(this.innerHTML);
+
+    });
 }
+
+
+// Linstener for keypress:
+
+document.addEventListener("keypress", function (event) {
+    makeSound(event.key);
+});
+
